@@ -12,10 +12,10 @@ class Propuestas extends Front_Controller {
     public function index()
     {
 
-        //$this->left_sidebar="left_default.php";
-        $this->right_sidebar="right_default.php";
+        $this->left_sidebar="left_default.php";
+        //$this->right_sidebar="right_default.php";
         $this->set_template("content_default");
-
+        prettyPrint($this->context);
         parent::renderView();
 
     }

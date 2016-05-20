@@ -45,7 +45,7 @@ class Welcome extends Front_Controller {
 		$this->addJS(array(
 			"JS...."
 		));
-
+		prettyPrint($this->context);
 
 		parent::renderView();
 	}

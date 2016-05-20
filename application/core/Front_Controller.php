@@ -23,10 +23,7 @@ class Front_Controller extends MY_Controller {
 
     public function __construct() {
 
-
         parent::__construct();
-
-
         if (is_null($this->display_header)) {
             $this->display_header = true;
         }
@@ -66,11 +63,69 @@ class Front_Controller extends MY_Controller {
         );
 
         $this->addCSS(array(
-            "bootstrap.min.css",
-            "bootstrap-theme.min.css"
+            "bootstrap.css",
+            "font-awesome.min.css",
+            "jslider.css",
+            "revslider/settings.css",
+            "jquery.fancybox.css",
+            "animate.css",
+            "video-js.min.css",
+            "morris.css",
+            "royalslider/royalslider.css",
+            "royalslider/skins/minimal-white/rs-minimal-white.css",
+            "layerslider/css/layerslider.css",
+            "ladda.min.css",
+            "datepicker.css",
+            "jquery.scrollbar.css",
+            "style.css",
+            "customizer/pages.css",
+            "customizer/home-pages-customizer.css",
         ));
+
         $this->addJS(array(
-            "bootstrap.min.js"
+            "jquery-2.1.3.min.js",
+            "bootstrap.min.js",
+            "price-regulator/jshashtable-2.1_src.js",
+            "price-regulator/jquery.numberformatter-1.2.3.js",
+            "price-regulator/tmpl.js",
+            "price-regulator/jquery.dependClass-0.1.js",
+            "price-regulator/draggable-0.1.js",
+            "price-regulator/jquery.slider.js",
+            "jquery.carouFredSel-6.2.1-packed.js",
+            "jquery.touchwipe.min.js",
+            "jquery.elevateZoom-3.0.8.min.js",
+            "jquery.imagesloaded.min.js",
+            "jquery.appear.js",
+            "jquery.sparkline.min.js",
+            "jquery.easypiechart.min.js",
+            "jquery.easing.1.3.js",
+            "jquery.fancybox.pack.js",
+            "isotope.pkgd.min.js",
+            "jquery.knob.js",
+            "jquery.selectBox.min.js",
+            "jquery.royalslider.min.js",
+            "jquery.tubular.1.0.js",
+            "SmoothScroll.js",
+            "country.js",
+            "spin.min.js",
+            "ladda.min.js",
+            "masonry.pkgd.min.js",
+            "morris.min.js",
+            "raphael.min.js",
+            "video.js",
+            "pixastic.custom.js",
+            "livicons-1.4.min.js",
+            "layerslider/greensock.js",
+            "layerslider/layerslider.transitions.js",
+            "layerslider/layerslider.kreaturamedia.jquery.js",
+            "revolution/jquery.themepunch.tools.min.js",
+            "revolution/jquery.themepunch.revolution.min.js",
+            "bootstrapValidator.min.js",
+            "bootstrap-datepicker.js",
+            "jplayer/jquery.jplayer.min.js",
+            "jplayer/jplayer.playlist.min.js",
+            "jquery.scrollbar.min.js",
+            "main.js",
         ));
     }
 
@@ -81,8 +136,13 @@ class Front_Controller extends MY_Controller {
     }
     //A�adir variables extra (o sobreescribir las ya existentes)
     public function set_vars($vars=array()){
-        if($vars)
+        if($vars){
+            if(!is_array($vars))
+            $vars = (array) $vars;
+            
             $this->context= array_merge($this->context, $vars);
+        }
+
     }
 
     public function renderView(){
@@ -104,7 +164,6 @@ class Front_Controller extends MY_Controller {
     }
 
     public function addCSS($cssfiles){
-
         if(!is_array($cssfiles))
             $cssfiles=array($cssfiles) ;
 

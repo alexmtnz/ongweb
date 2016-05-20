@@ -10,3 +10,8 @@
  function toUtf8($string){
     return utf8_encode($string);
 }
+
+
+function prettyPrint($a) {
+    echo '<pre>'.print_r($a,1).'</pre>';
+}
