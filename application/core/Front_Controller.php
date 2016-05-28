@@ -8,6 +8,7 @@ define("__SIDEBAR_VIEW__","sidebar");
 define("__CSS_PATH__","public/css");
 define("__JS_PATH__","public/js");
 
+
 /**
  * Created by PhpStorm.
  * User: Issam
@@ -45,6 +46,7 @@ class Front_Controller extends MY_Controller {
         }
 
         $this->init_context();
+        $this->get_user_logged();
     }
 
 
@@ -59,7 +61,9 @@ class Front_Controller extends MY_Controller {
             'description' => toUtf8('una descripcion básica'),
             'author' => '@Autores',
             'css' => array(),
-            'js' =>array()
+            'js' =>array(),
+            "user"=>null,
+            "session"=>null
         );
 
         $this->addCSS(array(
@@ -94,7 +98,11 @@ class Front_Controller extends MY_Controller {
             "jquery.carouFredSel-6.2.1-packed.js",
             "jquery.touchwipe.min.js",
             "jquery.elevateZoom-3.0.8.min.js",
-            "jquery.imagesloaded.min.js",
+
+        ));
+        /*
+         *
+         * "jquery.imagesloaded.min.js",
             "jquery.appear.js",
             "jquery.sparkline.min.js",
             "jquery.easypiechart.min.js",
@@ -126,7 +134,8 @@ class Front_Controller extends MY_Controller {
             "jplayer/jplayer.playlist.min.js",
             "jquery.scrollbar.min.js",
             "main.js",
-        ));
+         *
+         */
     }
 
     //Definir contenido
@@ -142,6 +151,27 @@ class Front_Controller extends MY_Controller {
             
             $this->context= array_merge($this->context, $vars);
         }
+
+    }
+
+        //load actual user
+    private function get_user_logged(){
+        $this->load->model("user");
+        $this->load->library("session");
+
+
+        $userdata = $this->session->userdata;
+        $usrclass = new User();
+
+        if(isset($userdata['logged_in']) and $userdata['logged_in']==true ){
+
+            $user = $usrclass->get($userdata['id_user']);
+            $this->set_vars(array(
+                "user" => $user,
+                "session" => $userdata
+            ));
+        }
+
 
     }
 

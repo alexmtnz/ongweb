@@ -15,3 +15,7 @@
 function prettyPrint($a) {
     echo '<pre>'.print_r($a,1).'</pre>';
 }
+
+function generate_form(){
+
+}

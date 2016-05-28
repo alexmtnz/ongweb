@@ -1,6 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+
+
+
 class Welcome extends Front_Controller {
 
 	public function __construct()
@@ -12,6 +15,17 @@ class Welcome extends Front_Controller {
 
 	public function index()
 	{
+
+		$this->load->model("User");
+		$this->User->email="miau";
+		$this->User->dni="miau";
+		$this->User->password="miau";
+		$this->User->nombre="miau";
+		$this->User->apellido1="miau";
+
+	//	print_r($this->User->save(3));
+
+
 		// por defecto a true, solo ejemplo
 		$this->display_header=true;
 		$this->display_footer=true;
@@ -45,7 +59,7 @@ class Welcome extends Front_Controller {
 		$this->addJS(array(
 			"JS...."
 		));
-		prettyPrint($this->context);
+
 
 		parent::renderView();
 	}
