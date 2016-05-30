@@ -37,13 +37,16 @@ class ObjectModel extends  MY_Model{
         return $this;
     }
 
-    /*
+    /* @Param where, add where clausure
      * Return all rows on the table
      */
-    public function getAll(){
+    public function getAll($where=''){
         $variables_tabla=$this->get_table_vars();;
 
-        $query = $this->db->query("SELECT ".$variables_tabla." FROM ".$this->class_name);
+        $sql="SELECT ".$variables_tabla." FROM ".$this->class_name.' '.$where;
+        $query = $this->db->query($sql);
+
+
         if ($query->num_rows() > 0) {
             return $query->result();
         }else{
@@ -84,11 +87,11 @@ class ObjectModel extends  MY_Model{
     }
 
     /*
-     * @PARAM $class_name, nombre de la clase
+     *
      * return valores para la select
      *
      */
-    private function get_table_vars(){
+    public function get_table_vars(){
         $variables_tabla='';
         $class_vars = $this->get_properties();
 

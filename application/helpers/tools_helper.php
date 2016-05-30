@@ -13,7 +13,7 @@
 
 
 function prettyPrint($a) {
-    echo '<pre>'.print_r($a,1).'</pre>';
+    echo '<pre>'.print_r($a).'</pre>';
 }
 
 function generate_form(){

@@ -14,6 +14,7 @@ class User extends ObjectModel{
     public $id_user;
     public $email;
     public $dni;
+    public $karma;
     public $password;
     public $nombre;
     public $apellido1;
@@ -31,6 +32,10 @@ class User extends ObjectModel{
            return false;
        }
    }
+
+    public function add_karma(){
+
+    }
 
 }
 

@@ -13,8 +13,6 @@ class Auth extends Front_Controller {
 
     public function index()
     {
-
-
         $this->load->model("User");
         $this->User->email="miau";
         $this->User->dni="miau";
@@ -72,9 +70,7 @@ class Auth extends Front_Controller {
             )
         );
 
-
         $form=  $this->HelperForm->generateForm($form_data);
-
         //añadir variables a todas las templates @ver: header_default
         $this->set_vars(
             array(
@@ -98,7 +94,6 @@ class Auth extends Front_Controller {
         $result=$user->check_user_password($mail,$pass);
             if($result!=false){
                 $loaduser = $user->get($result->id_user);
-
                 $newdata = array(
                     'id_user'=> $loaduser->id_user,
                     'username'  => $loaduser->nombre,

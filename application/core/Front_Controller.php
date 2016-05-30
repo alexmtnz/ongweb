@@ -47,6 +47,7 @@ class Front_Controller extends MY_Controller {
 
         $this->init_context();
         $this->get_user_logged();
+        $this->set_page_uris();
     }
 
 
@@ -148,32 +149,12 @@ class Front_Controller extends MY_Controller {
         if($vars){
             if(!is_array($vars))
             $vars = (array) $vars;
-            
             $this->context= array_merge($this->context, $vars);
         }
 
     }
 
-        //load actual user
-    private function get_user_logged(){
-        $this->load->model("user");
-        $this->load->library("session");
 
-
-        $userdata = $this->session->userdata;
-        $usrclass = new User();
-
-        if(isset($userdata['logged_in']) and $userdata['logged_in']==true ){
-
-            $user = $usrclass->get($userdata['id_user']);
-            $this->set_vars(array(
-                "user" => $user,
-                "session" => $userdata
-            ));
-        }
-
-
-    }
 
     public function renderView(){
 
@@ -211,5 +192,33 @@ class Front_Controller extends MY_Controller {
             $jsfile = base_url(). __JS_PATH__.'/'.$jsfile;
         }
         $this->context['js']= array_merge($this->context['js'],$jsfiles);
+    }
+
+
+    //load actual user
+    private function get_user_logged(){
+        $this->load->model("user");
+        $this->load->library("session");
+
+        $userdata = $this->session->userdata;
+        $usrclass = new User();
+
+        if(isset($userdata['logged_in']) and $userdata['logged_in']==true ){
+            $user = $usrclass->get($userdata['id_user']);
+            $this->set_vars(array(
+                "user" => $user,
+                "session" => $userdata
+            ));
+        }
+    }
+
+    private function set_page_uris(){
+        $uris = $this->router->routes;
+
+        foreach($uris as &$url){
+            $url = base_url().$url;
+        }
+        $uris['home'] =  base_url();
+        $this->set_vars(array("url"=>$uris));
     }
 }

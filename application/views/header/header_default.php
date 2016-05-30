@@ -21,7 +21,9 @@
             <link rel="stylesheet" type="text/css" href="<?=$cssfile?>">
         <?php } ?>
 
-
+        <?php  foreach($js as $jssfile){   ?>
+            <script src="<?=$jssfile ?>"> </script>
+        <?php } ?>
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -54,18 +56,18 @@
 
                         <nav class="collapse collapsing navbar-collapse">
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="<?=base_url()."myaccount" ?>">Mi cuenta</a></li>
+                                <li><a href="<?=$url['account'] ?>">Mi cuenta</a></li>
                                 <?php if($user!=null and $session['logged_in']==true) { ?>
                                     <li><a >
                                            Bienvenido <?=$user->nombre ?>
                                     </a>
                                     </li>
-                                    <li><a href="<?=base_url()."auth/logout" ?>">
+                                    <li><a href="<?=$url['logout']?>">
                                             desconectar
                                     </a>
                                     </li>
                                     <?php }else { ?>
-                                <li><a href="shop-login.html">
+                                <li><a href="<?=$url['login']?>">
                                         Log in
                                         <i class="fa fa-lock after"></i></a>
                                           </li>
@@ -108,7 +110,7 @@
                                 <nav class="collapse collapsing navbar-collapse">
                                     <ul class="nav navbar-nav navbar-center">
                                         <li >
-                                            <a href="index.html">Home<span class="item-new">New</span></a>
+                                            <a href="<?=$url['home'] ?>">Home<span class="item-new">New</span></a>
 
                                         </li>
                                         <li class="parent">

@@ -126,9 +126,7 @@
 <div class="clearfix"></div>
 
 
-<?php  foreach($js as $jssfile){   ?>
-    <script src="<?=$jssfile ?>"> </script>
-<?php } ?>
+
 
 
 <!--END FOOTER-->

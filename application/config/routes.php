@@ -58,3 +58,8 @@ $route['default_controller'] = 'welcome';
 // login
 $route['login'] = 'auth';
 $route['register'] = 'auth/register';
+$route['logout'] = 'auth/logout';
+
+$route['propuestas/(:any)'] = 'propuestas/index/$1';
+$route['addvotes'] = 'propuestas/add_votes';
+$route['account'] = 'myaccount';

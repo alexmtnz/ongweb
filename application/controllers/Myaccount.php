@@ -22,9 +22,6 @@ class Myaccount extends Front_Controller {
     {
 
         // user object logged = this->context['user']
-
-
-
         $this->addCSS(array(
             "customizer/shop-pages-customizer.css"
         ));
@@ -32,7 +29,6 @@ class Myaccount extends Front_Controller {
         $this->set_vars(array(
             "active_sidebar" => 1
         ));
-
         $this->right_sidebar="sidebaraccount";
 
         print_r($this->context['user']);
@@ -40,7 +36,6 @@ class Myaccount extends Front_Controller {
         //set_template pone el contenido
         $this->set_template("account/myaccount");
         //añadir variables a todas las templates @ver: header_default
-
 
 
         parent::renderView();
@@ -62,8 +57,6 @@ class Myaccount extends Front_Controller {
         //set_template pone el contenido
         $this->set_template("account/myaccount");
         //añadir variables a todas las templates @ver: header_default
-
-
 
         parent::renderView();
     }
