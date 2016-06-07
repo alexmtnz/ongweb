@@ -20,7 +20,7 @@ class HelperForm extends ObjectModel{
     public function generateForm($attributes){
         $form="";
         //abrimos form
-        $form.= form_open('auth/login', $attributes);
+        $form.= form_open($attributes['action'], $attributes);
 
         $form.='<h3 class="title">'. (isset($attributes['title']) ? $attributes['title'] : '') .'</h3> <p>'. (isset($attributes['title_desc']) ? $attributes['title_desc'] : '') .'</p>';
 
@@ -69,6 +69,13 @@ class HelperForm extends ObjectModel{
                  break;
              case "textarea" :
                 $html=form_textarea($data);
+                break;
+            case "date":
+                $html='<input type="date" ';
+                foreach($data as $key=> $dat){
+                    $html.=" ".$key."='".$dat."' ";
+                }
+                $html.='>';
                 break;
 
         }

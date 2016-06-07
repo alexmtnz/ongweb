@@ -114,17 +114,8 @@
 
                                         </li>
                                         <li class="parent">
-                                            <a href="#">Propuestas<span class="item-new">New</span></a>
-                                            <ul class="sub">
-                                                <li class="parent">
-                                                    <a href="#">Headers<span class="item-new">New</span></a>
-                                                    <ul class="sub">
-                                                        <li><a href="header1.html">....</a></li>
+                                            <a href="<?=$url['propuestas'] ?>">Propuestas</a>
 
-                                                    </ul>
-                                                </li>
-
-                                            </ul>
                                         </li>
 
                                         <li class="parent megamenu promo">

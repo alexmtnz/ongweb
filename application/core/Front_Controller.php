@@ -219,6 +219,7 @@ class Front_Controller extends MY_Controller {
             $url = base_url().$url;
         }
         $uris['home'] =  base_url();
+        $uris['propuestas'] = base_url()."propuestas";
         $this->set_vars(array("url"=>$uris));
     }
 }

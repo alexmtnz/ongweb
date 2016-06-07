@@ -19,16 +19,22 @@ class User extends ObjectModel{
     public $nombre;
     public $apellido1;
     public $apellido2;
-
+    public $fechaNacimiento;
+    public $numeroTelefono;
 
 
    public function check_user_password($user,$pwd){
        $query = $this->db->query("SELECT id_user,password FROM ".$this->class_name." WHERE email='".$user."' LIMIT 1");
            $result = $query->row();
 
-       if (hash_equals($result->password, crypt($pwd, $result->password))) {
+           // password is correct
+
+
+        if( md5($pwd) == $result->password) {
+
          return $result;
        }else{
+
            return false;
        }
    }
