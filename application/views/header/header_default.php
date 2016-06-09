@@ -186,6 +186,11 @@
                                                 </li>
                                             </ul><!-- .sub -->
                                         </li>
+										
+										<li class="parent">
+                                            <a href="<?=$url['donacion'] ?>">Donar</a>
+
+                                        </li>
 
                                     </ul>
                                 </nav>
