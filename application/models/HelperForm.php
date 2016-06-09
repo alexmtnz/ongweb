@@ -46,7 +46,7 @@ class HelperForm extends ObjectModel{
 
         $form.= form_submit($submit_data);
         $form.= form_close();
-        print_r($this->fields_form);
+
 
         return $form;
     }

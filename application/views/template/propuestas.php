@@ -72,28 +72,27 @@
             <?php foreach($propuestas as $propuesta)   {?>
             <div class="product">
                 <div class="col-sm-4 col-md-4">
-                    <a href="shop-product-view.html" class="product-image">
+                    <a href="<?=base_url()."propuesta/".$propuesta->id_propuestacampana?>" class="product-image">
 
                         <img class="replace-2x" src="<?=base_url()?>public/img/greenpeace.jpg" alt="" title="" width="270" height="270">
                     </a>
                 </div>
                 <div class="col-sm-8 col-md-8">
                     <h3 class="product-name">
-                        <a href="shop-product-view.html"><?= $propuesta->nombre ?></a>
+                        <a href="<?=base_url()."propuesta/".$propuesta->id_propuestacampana?>"><?= $propuesta->nombre ?></a>
 
                     </h3>
                     <div class="reviews-box">
 
                         <span> <span id="voto_numero_<?=$propuesta->id_propuestacampana?>"><?= $propuesta->votos ?></span> votos</span>
                         <span class="separator"></span>
-                        <a href="product-view.html#reviews" id="voto_correcto_<?=$propuesta->id_propuestacampana?>" style="color:green;" class="add-review"></a>
+                        <a href="<?=base_url()."propuesta/".$propuesta->id_propuestacampana?>" id="voto_correcto_<?=$propuesta->id_propuestacampana?>" style="color:green;" class="add-review"></a>
                     </div>
                     <div class="excerpt">
                         <?= $propuesta->descripcion ?>
                     </div>
                     <div class="price-box">
-                        <span class="price-old">$1500</span>
-                        <span class="price">$1199.00</span>
+                       <p><?= $propuesta->comentarios?> comentarios </p>
                     </div>
                     <div class="actions">
 

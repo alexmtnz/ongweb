@@ -23,7 +23,7 @@ class Welcome extends Front_Controller {
 		$this->User->nombre="miau";
 		$this->User->apellido1="miau";
 
-	//	print_r($this->User->save(3));
+		//print_r($this->User->save(3));
 
 
 		// por defecto a true, solo ejemplo

@@ -108,7 +108,7 @@ class Auth extends Front_Controller {
                 $this->session->set_userdata($newdata);
 
             }
-        redirect("myaccount");
+      redirect("myaccount");
     }
 
 
@@ -126,7 +126,6 @@ class Auth extends Front_Controller {
 
 
         $this->load->model('HelperForm');
-
 
         $form_data=array(
             'class' => 'form-box login-form form-validator',
