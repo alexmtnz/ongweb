@@ -40,8 +40,11 @@ class ObjectModel extends  MY_Model{
     /* @Param where, add where clausure
      * Return all rows on the table
      */
-    public function getAll($where=''){
+    public function getAll($where='',$moreval=''){
         $variables_tabla=$this->get_table_vars();;
+
+        if($moreval!="")
+            $variables_tabla.=",".$moreval;
 
         $sql="SELECT ".$variables_tabla." FROM ".$this->class_name.' '.$where;
         $query = $this->db->query($sql);
@@ -98,7 +101,7 @@ class ObjectModel extends  MY_Model{
         $length_class=sizeof($class_vars);
         $index=0;
         foreach($class_vars as $key => $value){
-            $variables_tabla.=$key;
+            $variables_tabla.= $this->class_name.".".$key;
             $length_class==$index+1? $variables_tabla.="" : $variables_tabla.="," ;
             $index++;
         }

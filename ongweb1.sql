@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generaciÃ³n: 07-06-2016 a las 16:05:31
--- VersiÃ³n del servidor: 5.6.26
--- VersiÃ³n de PHP: 5.6.12
+-- Tiempo de generación: 09-06-2016 a las 21:40:20
+-- Versión del servidor: 5.6.26
+-- Versión de PHP: 5.6.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,6 +19,58 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `ongweb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comentario`
+--
+
+CREATE TABLE IF NOT EXISTS `comentario` (
+  `id_comentario` int(11) NOT NULL,
+  `comentario` text NOT NULL,
+  `date_created` datetime NOT NULL,
+  `id_parent` int(11) NOT NULL DEFAULT '0',
+  `id_propuestacampana` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `comentario`
+--
+
+INSERT INTO `comentario` (`id_comentario`, `comentario`, `date_created`, `id_parent`, `id_propuestacampana`, `id_user`) VALUES
+(1, 'hola amigos esto me gusta', '2016-06-08 00:00:00', 0, 1, 1),
+(2, 'esto mola', '2016-06-16 00:00:00', 1, 1, 1),
+(3, 'xd respuesta 2 to the infinite', '2016-06-09 06:22:22', 2, 1, 1),
+(4, 'asdasdasdasdsa', '2016-06-22 00:00:00', 1, 1, 1),
+(5, '2', '0000-00-00 00:00:00', 2, 1, 1),
+(6, 'No sabes lo que dices tio', '0000-00-00 00:00:00', 3, 1, 1),
+(7, 'Banear a este tio', '0000-00-00 00:00:00', 3, 1, 1),
+(8, 'Tu si que sabes cabron', '2016-06-09 20:06:22', 5, 1, 1),
+(9, 'asdasdasda', '2016-06-09 20:06:01', 0, 1, 1),
+(10, 'asdasdasda', '2016-06-09 20:06:08', 0, 1, 1),
+(11, 'ey', '2016-06-09 20:06:14', 0, 1, 1),
+(12, 'xD', '2016-06-09 20:06:44', 2, 1, 1),
+(13, 'Pero que me estas container', '2016-06-09 20:06:25', 12, 1, 1),
+(14, 'vayaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '2016-06-09 20:06:18', 0, 2, 1),
+(15, 'callate tonto', '2016-06-09 20:06:33', 14, 2, 1),
+(16, 'Reported', '2016-06-09 20:06:47', 15, 2, 1),
+(17, 'Esto es espan', '2016-06-09 20:06:01', 16, 2, 1),
+(18, 'Yo quiero donar todo mi puto dinero', '2016-06-09 20:06:11', 0, 2, 1),
+(19, 'vaya fumao', '2016-06-09 20:06:45', 3, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comentario_historial`
+--
+
+CREATE TABLE IF NOT EXISTS `comentario_historial` (
+  `id_comentario_historial` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `date_created` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -73,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id_user`, `email`, `dni`, `password`, `nombre`, `apellido1`, `apellido2`, `fechaNacimiento`, `numeroTelefono`, `karma`, `fechaRegistro`, `idDireccion`, `idLoginAlternativo`) VALUES
-(1, 'prueba@prueba.com', 'asdd', '$1$un1.f83.$BSKpTiZE.1klII4DxHSqv0', 'asd1', 'asd2', 'asd3', '2016-05-11', 123321123, 181, '2016-05-25', 1, 1),
+(1, 'prueba@prueba.com', 'asdd', '34819d7beeabb9260a5c854bc85b3e44', 'asd1', 'asd2', 'asd3', '2016-05-11', 123321123, 181, '2016-05-25', 1, 1),
 (3, 'miau', 'miau', 'miau', 'miau', 'miau', 'xd3', '2016-05-10', 123321123, 2, '2016-05-11', 1, 2),
 (4, 'xdddd', 'xdddd', 'xdddd', 'xdddd', 'xdddd', 'xdddd', '0000-00-00', NULL, 0, '0000-00-00', NULL, NULL),
 (5, '', '', '', '', '', NULL, '0000-00-00', NULL, 0, '0000-00-00', NULL, NULL),
@@ -82,7 +134,7 @@ INSERT INTO `user` (`id_user`, `email`, `dni`, `password`, `nombre`, `apellido1`
 (8, 'xdddd', 'xdddd', 'xdddd', 'xdddd', 'xdddd', NULL, '0000-00-00', NULL, 0, '0000-00-00', NULL, NULL),
 (9, 'xdddd', 'xdddd', 'xdddd', 'xdddd', 'xdddd', NULL, '0000-00-00', NULL, 0, '0000-00-00', NULL, NULL),
 (10, 'xdddd', 'xdddd', 'xdddd', 'xdddd', 'xdddd', NULL, '0000-00-00', NULL, 0, '0000-00-00', NULL, NULL),
-(17, 'issinatour90@gmail.com', '', 'ed311374b13fdedb3d2b206127180e35', 'issam', 'natour', 'muÃ±oz', '1993-10-09', 123321123, 0, '0000-00-00', NULL, NULL);
+(17, 'issinatour90@gmail.com', '', 'ed311374b13fdedb3d2b206127180e35', 'issam', 'natour', 'muñoz', '1993-10-09', 123321123, 0, '0000-00-00', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -108,8 +160,20 @@ INSERT INTO `voto_propuesta` (`id_voto_propuesta`, `id_propuesta`, `id_user`, `d
 (38, 4, 1, '2016-05-30 14:53:36');
 
 --
--- Ãndices para tablas volcadas
+-- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  ADD PRIMARY KEY (`id_comentario`);
+
+--
+-- Indices de la tabla `comentario_historial`
+--
+ALTER TABLE `comentario_historial`
+  ADD PRIMARY KEY (`id_comentario_historial`);
 
 --
 -- Indices de la tabla `propuestacampana`
@@ -136,6 +200,16 @@ ALTER TABLE `voto_propuesta`
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
+--
+-- AUTO_INCREMENT de la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+--
+-- AUTO_INCREMENT de la tabla `comentario_historial`
+--
+ALTER TABLE `comentario_historial`
+  MODIFY `id_comentario_historial` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `propuestacampana`
 --

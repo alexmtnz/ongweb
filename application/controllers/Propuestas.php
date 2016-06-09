@@ -28,12 +28,13 @@ class Propuestas extends Front_Controller {
         $this->right_sidebar="sidebarpropuestas.php";
         $this->set_template("propuestas");
 
-        $this->load->model("Propuestacampana");
+        $this->load->model("Comentario");
         $all_propuestas= $this->Propuestacampana->get_all_propuestas($limit_start,$limit);
 
 
         foreach($all_propuestas as &$propuesta){
             $propuesta->votos =$this->Propuestacampana->count_votos($propuesta->id_propuestacampana);
+            $propuesta->comentarios =  $this->Comentario->count_coments($propuesta->id_propuestacampana)->numcoment;
         }
         print_r($this->context);
         $this->set_vars(array(

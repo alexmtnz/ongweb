@@ -54,6 +54,16 @@ class Myaccount extends Front_Controller {
 
         print_r($this->context['user']);
 
+        $this->load->model("Propuestacampana");
+
+        $user_propuestas = $this->Propuestacampana->get_propuestas_by_user($this->context['user']->id_user);
+
+
+
+        $this->set_vars(array(
+            "user_propuestas" => $user_propuestas
+        ));
+
         //set_template pone el contenido
         $this->set_template("account/myaccount");
         //añadir variables a todas las templates @ver: header_default

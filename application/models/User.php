@@ -10,7 +10,6 @@
 
 class User extends ObjectModel{
 
-
     public $id_user;
     public $email;
     public $dni;
@@ -28,7 +27,6 @@ class User extends ObjectModel{
            $result = $query->row();
 
            // password is correct
-
 
         if( md5($pwd) == $result->password) {
 

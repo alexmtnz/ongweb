@@ -60,7 +60,9 @@ $route['login'] = 'auth';
 $route['register'] = 'auth/register';
 $route['logout'] = 'auth/logout';
 
-$route['propuestas/(:any)'] = 'propuestas/index/$1';
+$route['propuestas/(:any)'] = 'propuestas/index/$1';	
 $route['donacion'] = 'donacion/index/$1';
+$route['propuesta/(:any)'] = 'propuesta/index/$1';
+$route['addpropuestap'] = 'propuesta/add_coment_parent';
 $route['addvotes'] = 'propuestas/add_votes';
 $route['account'] = 'myaccount';

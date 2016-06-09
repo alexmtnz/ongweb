@@ -100,5 +100,19 @@ class Propuestacampana extends ObjectModel{
             return null;
         }
     }
+
+    public function get_propuestas_by_user($id_user){
+        $variables_tabla=$this->get_table_vars();;
+
+        $sql="SELECT ".$variables_tabla." FROM ".$this->class_name.' WHERE id_user='.$id_user;
+        $query = $this->db->query($sql);
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        }else{
+            return null;
+        }
+
+    }
 }
 
